@@ -11,6 +11,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { StudentTableComponent } from './shared/student-table/student-table.component';
 import { StudentComponent } from './pages/student/student.component';
+import { ChildComponent } from './shared/child/child.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { StudentComponent } from './pages/student/student.component';
     AboutComponent,
     ContactComponent,
     StudentTableComponent,
-    StudentComponent
+    StudentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
