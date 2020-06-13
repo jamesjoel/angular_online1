@@ -1,0 +1,19 @@
+<div class="modal fade" id="delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- <pre>{{ newEmp | json }}</pre> -->
+
+
+            <div class="modal-header">
+                Delete Employee
+            </div>
+            <div class="modal-body">
+                <p>Are You Sure Want to Delete <b *ngIf="emp">{{ emp.name }}</b> !</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" (click)="delete()" data-dismiss="modal">Delete</button>
+                <button class="btn btn-dark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

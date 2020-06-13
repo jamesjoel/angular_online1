@@ -12,6 +12,11 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { StudentTableComponent } from './shared/student-table/student-table.component';
 import { StudentComponent } from './pages/student/student.component';
 import { ChildComponent } from './shared/child/child.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { EmployeeComponent } from './pages/employee/employee.component';
+import { EmpaddComponent } from './shared/empadd/empadd.component';
+import { EmpdeleteComponent } from './shared/empdelete/empdelete.component';
 
 
 @NgModule({
@@ -22,7 +27,12 @@ import { ChildComponent } from './shared/child/child.component';
     ContactComponent,
     StudentTableComponent,
     StudentComponent,
-    ChildComponent
+    ChildComponent,
+    HeaderComponent,
+    FooterComponent,
+    EmployeeComponent,
+    EmpaddComponent,
+    EmpdeleteComponent
   ],
   imports: [
     BrowserModule,
