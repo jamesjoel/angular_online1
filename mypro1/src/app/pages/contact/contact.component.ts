@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DemoService } from '../../services/demo.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+a:number;
+b:number;
+ans:string;
+  constructor(private _demo : DemoService) { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+  }
+
+  btnClick(){
+    // this.ans=this._demo.sum(this.a, this.b);
+    this.ans = this._demo.hello();
+    
   }
 
 }
