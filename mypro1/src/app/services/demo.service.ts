@@ -18,10 +18,7 @@ export class DemoService {
 
     // })
 
-    this._http.get("url").subscribe(data=>{
-
-    });
-
+    
 
   }
 }

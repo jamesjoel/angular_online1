@@ -5,6 +5,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { StudentComponent } from './pages/student/student.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { UsersComponent } from './pages/users/users.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path : "employee",
     component : EmployeeComponent
+  },
+  {
+    path : "users",
+    component : UsersComponent
   }
 ];
 

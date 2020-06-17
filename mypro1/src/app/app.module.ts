@@ -17,6 +17,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { EmpaddComponent } from './shared/empadd/empadd.component';
 import { EmpdeleteComponent } from './shared/empdelete/empdelete.component';
+import { UsersComponent } from './pages/users/users.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EmpdeleteComponent } from './shared/empdelete/empdelete.component';
     FooterComponent,
     EmployeeComponent,
     EmpaddComponent,
-    EmpdeleteComponent
+    EmpdeleteComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
