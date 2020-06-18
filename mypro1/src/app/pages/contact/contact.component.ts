@@ -20,7 +20,7 @@ ans:string;
 
   btnClick(){
     // this.ans=this._demo.sum(this.a, this.b);
-    this.ans = this._demo.hello();
+    
     
   }
 

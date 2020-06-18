@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h3>Add New User</h3>
+            <h3>{{ newUser.id ? "Update" : "Add New" }} User</h3>
             <div class="form-group">
                 <label>Name</label>
                 <input class="form-control" type="text" [(ngModel)]="newUser.name" />
@@ -18,7 +18,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <button (click)="add()" class="btn btn-success">Add</button>
+                <button (click)="add()" class="btn btn-success">{{ newUser.id ? "Update" : "Add"}}</button>&nbsp;
+                <span *ngIf="newUser.id">
+                    <button class="btn btn-danger" (click)="clearData()">Cancle</button>
+                </span>
             </div>
 
         </div>
@@ -30,10 +33,14 @@
         <th>S.No.</th>
         <th>Name</th>
         <th>City</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <tr *ngFor="let u of allUser; let n = index">
         <td>{{ n+1 }}</td>
         <td>{{ u.name }}</td>
         <td>{{ u.city }}</td>
+        <td><button class="btn btn-info" (click)="askEdit(u, n)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="delete(u)">Delete</button></td>
     </tr>
 </table>

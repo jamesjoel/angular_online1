@@ -18,4 +18,12 @@ export class UsersService {
   saveUser(obj){
     return this._http.post<any>("http://localhost/ang_server/student.php", obj);
   }
+  deleteUser(obj){
+    return this._http.delete<any>("http://localhost/ang_server/student.php?id="+obj.id);
+  }
+  updateUser(obj){
+    return this._http.put<any>("http://localhost/ang_server/student.php?id="+obj.id, obj);
+  }
+
+ 
 }
