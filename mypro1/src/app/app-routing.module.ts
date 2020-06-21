@@ -6,6 +6,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { StudentComponent } from './pages/student/student.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { UsersComponent } from './pages/users/users.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,15 @@ const routes: Routes = [
   {
     path : "users",
     component : UsersComponent
+  },
+  {
+    path : "login",
+    component : LoginComponent
+  },
+  {
+    path : "dashboard",
+    component : DashboardComponent
+    
   }
 ];
 

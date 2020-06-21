@@ -18,6 +18,8 @@ import { EmployeeComponent } from './pages/employee/employee.component';
 import { EmpaddComponent } from './shared/empadd/empadd.component';
 import { EmpdeleteComponent } from './shared/empdelete/empdelete.component';
 import { UsersComponent } from './pages/users/users.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { UsersComponent } from './pages/users/users.component';
     EmployeeComponent,
     EmpaddComponent,
     EmpdeleteComponent,
-    UsersComponent
+    UsersComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
