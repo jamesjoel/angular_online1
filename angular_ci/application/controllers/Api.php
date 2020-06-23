@@ -1,16 +1,12 @@
 <?php
 require(APPPATH.'libraries/REST_Controller.php');
 
-//https://code.tutsplus.com/tutorials/working-with-restful-services-in-codeigniter--net-8814
 class Api extends REST_Controller {
 
 	function __construct(){
 	
 		parent::__construct();
         $this->load->model("usermod");
-	
-		$this->key = "hello world";
-        $this->cipher = "AES-128-ECB";
 	}
 
 	public function index()
@@ -19,7 +15,8 @@ class Api extends REST_Controller {
 	}
 	function login_post() // localhost/ci/index.php/api/login
     {
-        
+       
+
         $u = $this->post("username");
         $p = $this->post("password");
         $res = $this->usermod->checkUsername($u);
@@ -29,22 +26,68 @@ class Api extends REST_Controller {
             $data = $res->row_array();
             if($data['password']==$p)
             {
-
-                $token=openssl_encrypt($data['id'], $this->cipher, $this->key);
-                $this->response(array("success"=>true, "token"=>$token), 200);
-                // echo $token=openssl_decrypt("W5BXBl59la8fGNxv6/Z7cA==", $this->cipher, $this->key);
+                $tokenData["id"]=$data['id'];
+                $output['token'] = AUTHORIZATION::generateToken($tokenData);
+                $this->set_response($output, REST_Controller::HTTP_OK);
             }
             else
             {
-                $this->response(array("success"=>false, "msgType"=>2), 401); // Pass
+                $this->set_response(array("success"=>false, "msgType"=>2), REST_Controller::HTTP_UNAUTHORIZED); 
 
             }
         }
         else
         {
-            $this->response(array("success"=>false, "msgType"=>1), 401); // User and Pass
+            $this->response(array("success"=>false, "msgType"=>1), REST_Controller::HTTP_UNAUTHORIZED); 
         }
-    	// $this->response($this->post(), 200);
+        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*$this->set_response($this->post());
+        $tokenData = array();
+        $tokenData['id'] = 1; //TODO: Replace with data for token
+        $output['token'] = AUTHORIZATION::generateToken($tokenData);
+        $this->set_response($output, REST_Controller::HTTP_OK);
+        */
+        //$decodedToken = AUTHORIZATION::validateToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.f0fkZGe81nLqpjaLlV8VLVZwTEuayLrKtoGKF6sR0gI");
+        //$this->set_response($decodedToken, REST_Controller::HTTP_OK);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         /*if(!$this->get('id'))
         {
             $this->response(NULL, 400);
@@ -61,10 +104,27 @@ class Api extends REST_Controller {
         {
             $this->response(NULL, 404);
         }*/
-    }
     function login_get()
     {
     	$this->response(array("name"=>"rohit"), 200);
     }
     
 }
+/*
+
+public function token_post()
+    {
+        $headers = $this->input->request_headers();
+
+        if (array_key_exists('Authorization', $headers) && !empty($headers['Authorization'])) {
+            $decodedToken = AUTHORIZATION::validateToken($headers['Authorization']);
+            if ($decodedToken != false) {
+                $this->set_response($decodedToken, REST_Controller::HTTP_OK);
+                return;
+            }
+        }
+
+        $this->set_response("Unauthorised", REST_Controller::HTTP_UNAUTHORIZED);
+    }
+
+*/

@@ -23,8 +23,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
   login(){
     this._loginServ.doLogin(this.user).subscribe(res=>{
+        
         localStorage.setItem("tokenCheck", res.token);
         this._router.navigate(["/dashboard"]);
     },
@@ -41,5 +44,9 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+ 
+
+
+
 
 }

@@ -25,9 +25,23 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="users">Users</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="login">Login</a>
-        </li>
+        <ng-template [ngIf]="_loginServ.isLoggedIn()" [ngIfElse]="cond" >
+          <li class="nav-item">
+            <a class="nav-link" routerLink="dashborad">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="_loginServ.logout()" style="cursor: pointer;" >Logout</a>
+          </li>
+        </ng-template>
+        <ng-template #cond>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="signup">Signup</a>
+          </li>
+        </ng-template>
+        
       </ul>
     </div>
   </nav>
