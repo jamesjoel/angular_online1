@@ -9,6 +9,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,11 @@ const routes: Routes = [
     component : DashboardComponent,
     canActivate : [AuthGuard]
     
+  },
+  {
+    path : "profile",
+    component : ProfileComponent,
+    canActivate : [AuthGuard]
   }
 ];
 

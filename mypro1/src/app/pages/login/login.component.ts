@@ -22,12 +22,16 @@ export class LoginComponent implements OnInit {
   constructor(private _loginServ : LoginService, private _router : Router) { }
 
   ngOnInit(): void {
+    
   }
+  
+
+
 
 
   login(){
     this._loginServ.doLogin(this.user).subscribe(res=>{
-        
+        console.log(res);
         localStorage.setItem("tokenCheck", res.token);
         this._router.navigate(["/dashboard"]);
     },

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Router } from '@angular/router';
 // import { environment } from '../../environments/environment';
 
@@ -16,7 +17,7 @@ export class LoginService {
 
   doLogin(obj){
     
-    return this._http.post<any>("http://localhost/angular_ci/index.php/api/login", obj);
+    return this._http.post<any>("http://localhost:3000/api/login", obj);
   }
 
   
@@ -37,6 +38,7 @@ export class LoginService {
         return false;
       }
     }
+    
   
 
 }

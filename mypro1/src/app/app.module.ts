@@ -20,6 +20,7 @@ import { EmpdeleteComponent } from './shared/empdelete/empdelete.component';
 import { UsersComponent } from './pages/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     EmpdeleteComponent,
     UsersComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
