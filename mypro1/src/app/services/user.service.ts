@@ -11,9 +11,10 @@ export class UserService {
 
 
   getUserInfo(){
-    return this._http.get<any>("http://localhost:3000/api/getuser", {
-      headers : { Authorization :  this._loginServ.getToken()}
-    })
+    return this._http.get<any>("http://localhost:3000/api/getuser");
+  }
+  demo(){
+    return this._http.get<any>("http://localhost:3000/api/hello");
   }
 
 }

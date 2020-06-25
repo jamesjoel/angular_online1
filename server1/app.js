@@ -58,6 +58,18 @@ app.get("/api/verifytoken", function(req, res){
 });
 
 
+
+
+app.get("/api/hello",(req, res)=>{
+    console.log(req.headers);
+})
+
+
+
+
+
+
+
 app.get("/api/getuser", backdoor, function (req, res) {
       
         var id = req.userData.id;
@@ -68,13 +80,16 @@ app.get("/api/getuser", backdoor, function (req, res) {
             }
             
             result = JSON.parse(JSON.stringify(result));
-            delete result.password;
-            res.status(200).send(result);
+            
+            delete result[0].password;
+            res.status(200).send(result[0]);
         })
 });
 
+
+
 function backdoor(req, res, next) {
-    
+    console.log("--------------",req.headers);
     if (!req.headers.authorization) {
         res.status(401).send({ msg: "Unathorized User" });
     }

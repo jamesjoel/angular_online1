@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     this._loginServ.doLogin(this.user).subscribe(res=>{
-        console.log(res);
+       // console.log(res); // 200
         localStorage.setItem("tokenCheck", res.token);
         this._router.navigate(["/dashboard"]);
     },
-    err=>{
+    err=>{ // 401 error
       console.log("-----------", err.error);
       if(err.error.msgType==1)
       {

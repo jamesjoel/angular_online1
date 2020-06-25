@@ -1,0 +1,25 @@
+<h2 class="text-center">Employees</h2>
+<button class="btn btn-primary" data-toggle="modal" (click)="askAdd()" data-target="#add">Add Employee</button>
+
+<table class="table table-dark table-hover">
+    <tr>
+        <th>S.No.</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr *ngFor="let emp of empData; let n = index">
+        <th>{{ n+1 }}</th>
+        <th>{{ emp.name }}</th>
+        <th>{{ emp.city }}</th>
+        <th>{{ emp.salary }}</th>
+        <th><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#add" (click)="askEdit(emp)">Edit</button></th>
+        <th><button class="btn btn-danger btn-sm" (click)="askDelete(emp)" data-target="#delete" data-toggle="modal">Delete</button></th>
+        
+    </tr>
+</table>
+
+<app-empadd (sendToParent)="add($event)" [newEmp]="emp"></app-empadd>
+<app-empdelete (deleteToParent)="delete($event)" [emp]="emp"></app-empdelete>

@@ -1,0 +1,42 @@
+<p>student works!</p>
+
+Name : <input type="Text" [(ngModel)]="obj.name"/>
+<br />
+<Br />
+Age : <input type="Text" [(ngModel)]="obj.age"/>
+<Br />
+<Br />
+<select [(ngModel)]="obj.city">
+    <option value="">Select</option>
+    <option value="indore">Indore</option>
+    <option value="ujjain">Ujjain</option>
+    <option value="mhow">Mhow</option>
+    <option value="bhopal">Bhopal</option>
+</select>
+<br/>
+
+<p>{{ gender }}</p>
+
+
+
+<!-- 
+    var a = b=='indore' ? 'rohit' : 'james';
+
+
+
+
+
+ -->
+
+
+
+Male<input type="radio" [(ngModel)]="gender" value="male" />
+Female<input type="radio" [(ngModel)]="gender"  value="female" />
+
+<br/>
+
+
+<button (click)="add()">Add</button>
+
+
+<app-student-table [allStudent]="data"></app-student-table>
