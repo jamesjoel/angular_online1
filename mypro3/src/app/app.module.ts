@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -24,6 +24,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 
 import { TokenInterceptor } from './token.interceptor';
+import { SignupComponent } from './pages/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,13 +42,15 @@ import { TokenInterceptor } from './token.interceptor';
     UsersComponent,
     LoginComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true}],
   bootstrap: [AppComponent]

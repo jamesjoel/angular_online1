@@ -14,9 +14,10 @@ export class HttptokenInterceptor implements HttpInterceptor {
   constructor(private _loginServ : LoginService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler){
-    const token = this._loginServ.getToken();
-    //logic
-    request = request.clone({ headers : request.headers.set("Authorization", token)});
+    if (localStorage.getItem("tokenCheck")){
+      const token = this._loginServ.getToken();
+      request = request.clone({ headers : request.headers.set("Authorization", token)});
+    }
     return next.handle(request);
   }
 }

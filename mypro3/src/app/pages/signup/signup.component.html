@@ -1,0 +1,67 @@
+<div class="col-md-6 offset-md-3 mt-4">
+    <form [formGroup]="user">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" formControlName="fName" [ngClass]="{'is-invalid': check && user.controls.fName.errors}" class="form-control" />
+        <div *ngIf="check && user.controls.fName.errors" class="invalid-feedback">
+            <p *ngIf="user.controls.fName.errors.required">
+                Insert Your Full Name
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" formControlName="username" [ngClass]="{'is-invalid' : check && user.controls.username.errors}" class="form-control" />
+        <div *ngIf="check && user.controls.username.errors" class="invalid-feedback">
+            <p *ngIf="user.controls.username.errors.required">
+                Insert Your Email Id
+            </p>
+            <p *ngIf="user.controls.username.errors.email">
+                Insert Correct Email Id
+            </p>
+            <p *ngIf="user.controls.username.errors.emailError">
+                Already
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': check && user.controls.password.errors}" formControlName="password" />
+        <div *ngIf="check && user.controls.password.errors" class="invalid-feedback">
+            <p *ngIf="user.controls.password.errors.required">
+                Insert Your Password
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Re-Password</label>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid':check && user.controls.rePassword.errors }" formControlName="rePassword">
+        <div *ngIf="check && user.controls.rePassword.errors" class="invalid-feedback">
+            <p *ngIf="user.controls.rePassword.errors.required">
+                Insert Your Re-Password
+            </p>
+            <p *ngIf="user.controls.rePassword.errors.myError">
+                Insert Correct Re-Password
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>City</label>
+        <select class="form-control">
+            <option value="">Select</option>
+            <option value="indore">Indore</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="pune">Pune</option>
+            
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Contact</label>
+        <input type="text" class="form-control" />
+    </div>
+
+    <br />
+    <Br />
+    <input type="submit" (click)="submit()" value="Submit" class="btn btn-primary" />
+    </form>
+</div>

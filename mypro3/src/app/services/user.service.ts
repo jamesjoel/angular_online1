@@ -15,5 +15,8 @@ export class UserService {
       headers : { Authorization :  this._loginServ.getToken()}
     })
   }
+  checkUser(obj){
+    return this._http.post<any>("http://localhost:3000/api/check", obj);
+  }
 
 }
