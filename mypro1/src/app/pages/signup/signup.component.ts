@@ -1,5 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
+// After import ReactiveFormModules in our module
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Match, contactCheck } from '../../helpers/passwordmatch.validator';
+
 /*  
   FormBuilder ----- IS A SERVICE
   FormGroup ------- IS A INTERFACE
@@ -13,16 +17,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  
   signupFrm:FormGroup;
   checkSubmit:boolean = false;
   
   constructor(private _fb : FormBuilder) {
     this.signupFrm = this._fb.group({
       fullName : ["", Validators.required],
-      username : ["", [Validators.required, Validators.email]]
-      
-    })
+      username : ["", [Validators.required, Validators.email]],
+      city : ["", Validators.required],
+      password: ["", Validators.required],
+      repassword: ["", Validators.required],
+      contact : ["", Validators.required]  
+     },
+     {
+       validator : [Match('password', 'repassword'), contactCheck('contact')] // Password FormControlName to the custome function
+     }
+     
+     
+     
+     )
 
 
 
@@ -31,8 +45,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   save(){
-    // this.signupFrm.setValue({"hidden1": "jaydeep"});
-    // this.signupFrm.value();
+    
     this.checkSubmit=true;
     if(this.signupFrm.invalid){
       return;

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { Match } from '../../helpers/match.validator';
-// import { HttpClient } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
-import { resolve } from 'dns';
+
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +23,7 @@ export class SignupComponent implements OnInit {
       contact : ["", Validators.required]
     },
     {
-      validator : [Match('password', 'rePassword'), this.checkUsername(this.user.controls.username)]
+      validator : [Match('password', 'rePassword')]
     }
     )
    }
@@ -41,23 +40,6 @@ export class SignupComponent implements OnInit {
     console.log(this.user.value);
   }
 
-  checkUsername(user:AbstractControl){
-    return new Promise(resolve=>{
-      if(user.errors && !user.errors.emailError){
-        return;
-      }
-      setTimeout(() => {
-        this._userServ.checkUser({username : user.value}).subscribe(res=>{
-          if(res.msg==1){
-            user.setErrors({"emailError":true});
-            resolve();
-          }
-          else{
-            user.setErrors(null);
-            resolve();
-          }
-        })
-      }, 1000);
-    })
-  }
+  
+  
 }
