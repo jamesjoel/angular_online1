@@ -87,6 +87,21 @@ app.get("/api/getuser", backdoor, function (req, res) {
         })
 });
 
+app.get("/api/teacher", function (req, res) {
+
+    
+    con.query("SELECT * FROM employee", function (err, result) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        result = JSON.parse(JSON.stringify(result));
+     
+        res.status(200).send(result);
+    })
+});
+
 
 
 function backdoor(req, res, next) {

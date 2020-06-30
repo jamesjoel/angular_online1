@@ -24,6 +24,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 import { HttptokenInterceptor } from './interceptor/httptoken.interceptor';
 import { SignupComponent } from './pages/signup/signup.component';
+import { TeacherComponent } from './pages/teacher/teacher.component';
+import { BonusePipe } from './pipes/bonuse.pipe';
+import { GenderPipe } from './pipes/gender.pipe';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { SignupComponent } from './pages/signup/signup.component';
     LoginComponent,
     DashboardComponent,
     ProfileComponent,
-    SignupComponent
+    SignupComponent,
+    TeacherComponent,
+    BonusePipe,
+    GenderPipe
   ],
   imports: [
     BrowserModule,
@@ -63,3 +69,26 @@ import { SignupComponent } from './pages/signup/signup.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+/*
+1. Installation and Create
+2. Component (Feature Comp/Shared Comp)
+3. Data Passing bw Compoent 
+  a. @Input
+  b. @ouput
+  c. @childView *
+4. Routing 
+5. Child Routing *
+6. Modules *
+7. CRUD 
+8. Services
+9. HttpClientModuel/HttpClient -- Service
+10. Authentication (Token)
+11. Guard
+12. Interceptor
+13. ReactiveFormsModuels
+14. Pipes *
+15. File Upload *
+17. Build a Project *
+18. Direvices *
+*/

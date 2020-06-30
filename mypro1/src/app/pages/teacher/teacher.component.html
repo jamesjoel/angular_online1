@@ -1,0 +1,31 @@
+<Br />
+<table class="table table-dark">
+    <tr>
+        <th>S.No.</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Bonuse</th>
+    </tr>
+    <tr *ngFor="let e of emp; let n = index">
+        <td>{{ n+1 }}</td>
+        <td>{{ e.name | gender : e.gender }}</td>
+        <td>{{ e.salary | currency }}</td>
+        <td>{{ e.age }}</td>
+        <td>{{ e.gender }}</td>
+        <td>{{ e.salary | bonuse : e.age : e.gender | currency }}</td>
+    </tr>
+</table>
+<!-- 
+    1. currency
+    2. date --- 2020-11-23 10:44:02 ----------- 23-Nov 2020  
+    3. uppercase
+    4. lowercase
+    5. number
+    .
+    .
+    .
+    .
+    .
+ -->

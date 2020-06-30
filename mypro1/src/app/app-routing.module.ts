@@ -11,6 +11,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { TeacherComponent } from './pages/teacher/teacher.component';
 
 
 const routes: Routes = [
@@ -56,6 +57,10 @@ const routes: Routes = [
     path : "profile",
     component : ProfileComponent,
     canActivate : [AuthGuard]
+  },
+  {
+    path : "teacher",
+    component : TeacherComponent
   }
 ];
 
