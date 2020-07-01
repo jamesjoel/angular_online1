@@ -27,6 +27,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { TeacherComponent } from './pages/teacher/teacher.component';
 import { BonusePipe } from './pipes/bonuse.pipe';
 import { GenderPipe } from './pipes/gender.pipe';
+import { AgePipe } from './pipes/age.pipe';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { GenderPipe } from './pipes/gender.pipe';
     SignupComponent,
     TeacherComponent,
     BonusePipe,
-    GenderPipe
+    GenderPipe,
+    AgePipe
   ],
   imports: [
     BrowserModule,

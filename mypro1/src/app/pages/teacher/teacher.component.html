@@ -10,9 +10,9 @@
     </tr>
     <tr *ngFor="let e of emp; let n = index">
         <td>{{ n+1 }}</td>
-        <td>{{ e.name | gender : e.gender }}</td>
-        <td>{{ e.salary | currency }}</td>
-        <td>{{ e.age }}</td>
+        <td>{{ e.name | xyz : e.gender  }}</td>
+        <td>{{ e.salary | currency : '&#8377;' }}</td>
+        <td>{{ e.age | newage }}</td>
         <td>{{ e.gender }}</td>
         <td>{{ e.salary | bonuse : e.age : e.gender | currency }}</td>
     </tr>

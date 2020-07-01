@@ -1,17 +1,27 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'gender'
+  name: 'xyz'
 })
 export class GenderPipe implements PipeTransform {
 
-  transform(name, gender){
-    if(gender=="male"){
-      return "Mr. "+name;
+  transform(a, b){
+    if(b=="male"){
+      return "Mr. "+a;
     }
-    if(gender=="female"){
-      return "Mrs. "+name;
+    if(b=="female"){
+      return "Ms. "+a;
     }
   }
 
 }
+
+/*
+1. Pipe --------- transform()
+2. Guard ------- canActivate()
+3. Interceptor ----- intercept()
+
+
+
+
+*/

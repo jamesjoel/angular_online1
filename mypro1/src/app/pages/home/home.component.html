@@ -1,1 +1,13 @@
-<p>home works!</p>
+
+<p #hello>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati odit voluptatem fugiat magni voluptate animi iure saepe aspernatur id officia deserunt laboriosam veritatis nisi accusamus quaerat, dolorum possimus modi vero?</p>
+
+<input type="file" #up/>
+
+<Br />
+<Br />
+<button (click)="doUpload(up)">Upload</button>
+
+<div *ngFor="let m of imgArr">
+    <img src="{{ m.path }}" height="200" width="200" />
+</div>
+

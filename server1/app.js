@@ -5,6 +5,13 @@ var cors = require("cors");
 var jwt = require("jsonwebtoken");
 
 var mysql = require('mysql');
+var fileupload = require("express-fileupload");
+
+app.use(express.static(__dirname+"/public"));
+
+app.use(cors());
+app.use(fileupload());
+
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -13,6 +20,16 @@ var con = mysql.createConnection({
   database: "angular"
 });
 
+app.post("/api/fileupload", (req, res) => {
+    // console.log(req.files);
+    var file = req.files.image;
+    file.mv(__dirname + "/public/image/" + file.name, (err) => {
+        if (err) {
+            console.log(err);
+        }
+        res.send({ path: "http://localhost:3000/image/" + file.name });
+    })
+});
 
 
 app.use(bodyParser());
