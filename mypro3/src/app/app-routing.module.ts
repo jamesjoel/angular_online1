@@ -56,6 +56,10 @@ const routes: Routes = [
   {
     path : "signup",
     component : SignupComponent
+  },
+  {
+    path : "admin",
+    loadChildren: "./admin/admin.module#AdminModule"
   }
 ];
 

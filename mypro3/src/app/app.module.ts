@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -50,7 +51,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdminModule
   ],
   providers: [{ provide : HTTP_INTERCEPTORS, useClass : TokenInterceptor, multi : true}],
   bootstrap: [AppComponent]
