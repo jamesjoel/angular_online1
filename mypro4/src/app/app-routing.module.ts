@@ -10,6 +10,14 @@ const routes: Routes = [
   {
     path : "admin",
     loadChildren : "./admin/admin.module#AdminModule"
+  },
+  {
+    path : "teacher",
+    loadChildren : "./teacher/teacher.module#TeacherModule"
+  },
+  {
+    path : "stu",
+    loadChildren : "./student/student.module#StudentModule"
   }
 ];
 

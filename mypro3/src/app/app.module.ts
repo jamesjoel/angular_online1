@@ -26,6 +26,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 import { TokenInterceptor } from './token.interceptor';
 import { SignupComponent } from './pages/signup/signup.component';
+import { HelloDirective } from './directives/hello.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     LoginComponent,
     DashboardComponent,
     ProfileComponent,
-    SignupComponent
+    SignupComponent,
+    HelloDirective
   ],
   imports: [
     BrowserModule,
