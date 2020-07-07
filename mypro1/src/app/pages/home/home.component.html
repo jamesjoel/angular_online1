@@ -1,13 +1,40 @@
 
 <p #hello>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati odit voluptatem fugiat magni voluptate animi iure saepe aspernatur id officia deserunt laboriosam veritatis nisi accusamus quaerat, dolorum possimus modi vero?</p>
 
-<input type="file" #up/>
+<!-- <input type="file" #up/> -->
+<input type="file" (change)="doUpload($event.target)"/>
 
 <Br />
 <Br />
-<button (click)="doUpload(up)">Upload</button>
+<!-- <button (click)="doUpload(up)">Upload</button> -->
 
 <div *ngFor="let m of imgArr">
     <img src="{{ m.path }}" height="200" width="200" />
 </div>
 
+<p appMydir>james joel</p>
+<h2 appMydir>The Stepping Stone</h2>
+<!-- 
+    1. Javascript
+    2. Asy
+    3. Callback
+    4. NPM
+    5. Core Node
+    6. Express
+    7. Express Routing
+    8. Express MVC (Without Angular)
+    9. Database (MySQL)
+    10. MongoDB
+    11. Angular and Node
+    12. Socket.io (Live Score, Share, )
+    13. PassportJS
+    14. Token Based Auth
+    15. File Upload
+    16. Session & Cookie
+    17. File Function
+    18. Commands Line Operation
+    19. Hareku Live
+    20. 
+
+
+ -->

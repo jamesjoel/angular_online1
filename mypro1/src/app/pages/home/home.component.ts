@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     
   }
   doUpload(image){
+    console.log(image);
     
     // console.log(image.files[0]);
     let file = image.files[0];

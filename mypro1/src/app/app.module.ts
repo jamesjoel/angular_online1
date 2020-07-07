@@ -28,6 +28,7 @@ import { TeacherComponent } from './pages/teacher/teacher.component';
 import { BonusePipe } from './pipes/bonuse.pipe';
 import { GenderPipe } from './pipes/gender.pipe';
 import { AgePipe } from './pipes/age.pipe';
+import { MydirDirective } from './directives/mydir.directive';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AgePipe } from './pipes/age.pipe';
     TeacherComponent,
     BonusePipe,
     GenderPipe,
-    AgePipe
+    AgePipe,
+    MydirDirective
   ],
   imports: [
     BrowserModule,

@@ -65,8 +65,9 @@ export class EmployeeComponent implements OnInit {
     // console.log(emp);
     this.emp = emp;
   }
-  delete(emp:Employee){
-    let n = this.empData.indexOf(emp);
+  delete(){
+    
+    let n = this.empData.indexOf(this.emp);
     this.empData.splice(n, 1);
   }
   askEdit(emp:Employee){
