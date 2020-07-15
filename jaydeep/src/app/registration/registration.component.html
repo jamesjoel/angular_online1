@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Registration</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]='regiForm'>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" formControlName='name' [ngClass]="{'is-invalid': checkSubmitMy && regiForm.controls.name.errors}" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" formControlName='email' class="form-control" placeholder="email" [ngClass]="{'is-invalid': checkSubmitMy && regiForm.controls.email.errors}" />
+                            <div *ngIf="checkSubmitMy && regiForm.controls.email.errors" class="invalid-feedback">
+                                <p *ngIf='regiForm.controls.email.errors.required'>
+                                    Please Enter Email
+                                </p>
+                                <p *ngIf='regiForm.controls.email.errors.email'>
+                                    Please Enter Correct Email
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" formControlName='number' class="form-control" placeholder="number" [ngClass]="{'is-invalid': checkSubmitMy && regiForm.controls.number.errors}" />
+                            <div *ngIf="checkSubmitMy && regiForm.controls.number.errors" class="invalid-feedback">
+                                <p *ngIf='regiForm.controls.number.errors.required'>
+                                    Please Enter Contact Number
+                                </p>
+                                <p *ngIf='regiForm.controls.number.errors.conError'> 
+                                    Please Enter 5 digit Contact Number
+                                </p> 
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Password" formControlName="password" class="form-control"
+                                [ngClass]="{'is-invalid':checkSubmitMy && regiForm.controls.password.errors}" />
+                            <div *ngIf="checkSubmitMy && regiForm.controls.password.errors" class="invalid-feedback">
+                                <p *ngIf="regiForm.controls.password.errors.required">
+                                    Insert Your Password
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Re-Password</label>
+                            <input type="password" placeholder="Re-Password" formControlName="repassword" class="form-control"
+                                [ngClass]="{'is-invalid':checkSubmitMy && regiForm.controls.repassword.errors}" />
+                            <div *ngIf="checkSubmitMy && regiForm.controls.repassword.errors" class="invalid-feedback">
+                                <p *ngIf="regiForm.controls.repassword.errors.required">
+                                    Insert Your Re-Password
+                                </p>
+                                <p *ngIf="regiForm.controls.repassword.errors.myError">
+                                    Your Re-Password is not Correct !
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input (click)='save()' type="submit" value="save" class="btn btn-info">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

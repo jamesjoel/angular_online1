@@ -14,23 +14,23 @@
           <a class="nav-link" routerLink="">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="about">About</a>
+          <a class="nav-link" routerLink="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Contact</a>
+          <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="employee">Employee</a>
+          <a class="nav-link" routerLink="/employee">Employee</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="users">Users</a>
+          <a class="nav-link" routerLink="/users">Users</a>
         </li>
         <ng-template [ngIf]="_loginServ.isLoggedIn()" [ngIfElse]="cond" >
           <li class="nav-item">
-            <a class="nav-link" routerLink="dashborad">Dashboard</a>
+            <a class="nav-link" routerLink="/dashborad">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="profile">Profile</a>
+            <a class="nav-link" routerLink="/profile">Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="_loginServ.logout()" style="cursor: pointer;" >Logout</a>
@@ -38,14 +38,20 @@
         </ng-template>
         <ng-template #cond>
           <li class="nav-item">
-            <a class="nav-link" routerLink="login">Login</a>
+            <a class="nav-link" routerLink="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="signup">Signup</a>
+            <a class="nav-link" routerLink="/signup">Signup</a>
           </li>
         </ng-template>
         <li class="nav-item">
-          <a class="nav-link" routerLink="teacher">Teacher</a>
+          <a class="nav-link" routerLink="/teacher">Teacher</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/slider">Slider</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product">Product</a>
         </li>
       </ul>
     </div>

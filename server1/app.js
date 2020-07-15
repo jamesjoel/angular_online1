@@ -119,6 +119,49 @@ app.get("/api/teacher", function (req, res) {
     })
 });
 
+app.get("/api/teacher/:id", function(req, res){
+    
+    var id = req.params.id;
+    con.query("SELECT * FROM employee WHERE id = "+id, function (err, result) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        result = JSON.parse(JSON.stringify(result));
+
+        res.status(200).send(result[0]);
+    })
+});
+
+app.get("/api/products", function(req, res){
+    con.query("SELECT * FROM product", function (err, result) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        result = JSON.parse(JSON.stringify(result));
+
+        res.status(200).send(result);
+    })
+})
+app.get("/api/products/:id", function (req, res) {
+    var id = req.params.id;
+    con.query("SELECT * FROM product WHERE id = "+id, function (err, result) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        result = JSON.parse(JSON.stringify(result));
+
+        res.status(200).send(result[0]);
+    })
+})
+
+
+
 
 
 function backdoor(req, res, next) {
@@ -186,17 +229,34 @@ app.post("/api/login", function (req, res) {
           
     
   });
-
-
-
-   
 });
-
-
-
-
-
-
 app.listen(3000, function () {
     console.log("server running");
 });
+
+/*
+$name = $_FILES[''][''];
+$tmp_name = $_FILES[''][''];
+
+move_uploaded_file($tmp_name, "upload/".$name);
+*/
+
+/*
+<form action="save.php" method="post">
+
+
+    <submit>Save</submit>
+</form>
+
+
+
+*/
+
+/*
+save.php
+
+
+$_POST[];
+
+
+*/

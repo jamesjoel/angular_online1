@@ -1,0 +1,26 @@
+<h2 class="text-center">All Products</h2>
+<!-- <pre>{{ allProduct | json }}</pre> -->
+<div style="width: 400px;">
+   
+</div>
+<div class="row">
+    <div class="col-md-4" *ngFor="let pro of allProduct;">
+    
+        <div class="card mb-4">
+            <img class="card-img-top d-block mx-auto" [src]="pro.image_path" alt="Card image" style="height: 150px; width: 100%;">
+            <div class="card-body">
+                <div style="height: 100px; width: 50%; background-color: red;">
+                    <ng-image-slider [images]="imageObject" [imageSize]="{width: '100%', height: '100px', space: 4}" #nav>
+                    </ng-image-slider>
+                </div>
+                <h4 class="card-title" [innerHTML]="pro.title"></h4>
+                <p class="card-text" [innerHTML]="pro.price">Some example text.</p>
+                <a [routerLink]="['/product', pro.id]" class="btn btn-primary">More Detail</a>
+                <!-- <a routerLink="product/{{ pro.id }}" class="btn btn-primary">More Detail</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

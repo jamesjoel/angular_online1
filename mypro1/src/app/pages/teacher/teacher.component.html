@@ -7,6 +7,8 @@
         <th>Age</th>
         <th>Gender</th>
         <th>Bonuse</th>
+        <th>Edit</th>
+        <th>Info</th>
     </tr>
     <tr *ngFor="let e of emp; let n = index">
         <td>{{ n+1 }}</td>
@@ -15,6 +17,9 @@
         <td>{{ e.age | newage }}</td>
         <td>{{ e.gender }}</td>
         <td>{{ e.salary | bonuse : e.age : e.gender | currency }}</td>
+        <!-- <td><a class="btn btn-info" routerLink="/teacher/info/{{ e.id }}/{{e.name}}">Info</a></td> -->
+        <td><a class="btn btn-info" [routerLink]= "['/teacher/info', e.id, e.name]">Info</a></td>
+        <td><button class="btn btn-warning">Edit</button></td>
     </tr>
 </table>
 <!-- 

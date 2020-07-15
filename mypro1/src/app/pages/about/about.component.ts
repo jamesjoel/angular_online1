@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
 
   y:string;
+  name:string="rohit";
+  path:string="image.jpg";
+  colorName:string="blue";
   constructor() { }
 
   ngOnInit(): void {

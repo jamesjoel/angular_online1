@@ -1,0 +1,49 @@
+<!-- <div class="container">
+    <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4>File Upload</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class='control-label'>Image Upload</label>
+                        <input #imagePic type="file" class="form-control">
+                    </div>
+                    <p><button (click)='imgUpload(imagePic)' class="btn btn-info">Upload</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4>File Upload</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                      <input type="file" class="form-control" name="avatar" (change)="onFileSelect($event)" /> <br> <br>
+                      <button class="btn btn-info" type="submit">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-4">
+                    <div *ngIf="uploadResponse && uploadResponse.status === 'error'">
+                        <h6>{{fileMsg}}</h6>
+                    </div>
+                    <div *ngIf="uploadResponse && uploadResponse.status === 'success'">
+                        <h6>{{fileMsg}}</h6>
+                      <img class="img-fluid" [src]='uploadResponse.url' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

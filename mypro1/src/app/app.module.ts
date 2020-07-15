@@ -29,6 +29,14 @@ import { BonusePipe } from './pipes/bonuse.pipe';
 import { GenderPipe } from './pipes/gender.pipe';
 import { AgePipe } from './pipes/age.pipe';
 import { MydirDirective } from './directives/mydir.directive';
+import { InfoComponent } from './pages/info/info.component';
+import { SliderComponent } from './pages/slider/slider.component';
+
+import { NgImageSliderModule } from 'ng-image-slider';
+import { DpDatePickerModule } from 'ng2-date-picker';
+import { ProductComponent } from './pages/product/product.component';
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -54,14 +62,21 @@ import { MydirDirective } from './directives/mydir.directive';
     BonusePipe,
     GenderPipe,
     AgePipe,
-    MydirDirective
+    MydirDirective,
+    InfoComponent,
+    SliderComponent,
+    ProductComponent,
+    ProductInfoComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgImageSliderModule,
+    DpDatePickerModule
   ],
   providers: [
     {

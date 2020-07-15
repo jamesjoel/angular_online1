@@ -1,0 +1,56 @@
+<div class="container">
+    <br>
+    <div class="row">
+      <div class="col-md-5 offset-md-7">
+        <div class="form-group">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="searching for a Name">
+        </div>
+      </div>
+        <div class="col-md-12">
+            <table class="table table-dark table-hover text-center">
+                <thead>
+                  <tr>
+                    <th>#Id</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let data of allData | filter:searchText; let n = index;'>
+                    <td>{{ n+1 }}</td>
+                    <td>{{ data.fullname | Mgender: data.gender}}</td>
+                    <td>{{ data.lastname }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.mobile }}</td>
+                    <td>{{ data.city }}</td>
+                    <td>{{ data.gender }}</td>
+                    <td> 
+                        <button data-toggle="modal" data-target="#deletePop" class="btn btn-outline-danger btn-sm">Delete</button>&nbsp;&nbsp;
+                        <a [routerLink]="['/update', data.id]" class="btn btn-outline-warning btn-sm">Update</a>
+                     </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div> 
+    </div>            
+  </div>
+  
+  <!-- The Modal -->
+  <div class="modal fade" id="deletePop">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">     
+        <div class="modal-body">
+          <h5>Are You Sure You Wanto Delete? </h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="delete(allData)" class="btn btn-danger" data-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

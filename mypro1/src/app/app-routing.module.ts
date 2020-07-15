@@ -12,6 +12,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { TeacherComponent } from './pages/teacher/teacher.component';
+import { InfoComponent } from './pages/info/info.component';
+import { SliderComponent } from './pages/slider/slider.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -61,6 +66,26 @@ const routes: Routes = [
   {
     path : "teacher",
     component : TeacherComponent
+  },
+  {
+    path : "teacher/info/:id/:name",
+    component : InfoComponent
+  },
+  {
+    path : "slider",
+    component : SliderComponent 
+  },
+  {
+    path : "product",
+    component : ProductComponent
+  },
+  {
+    path : "product/:id",
+    component : ProductComponent
+  },
+  {
+    path : "**",
+    component : NotFoundComponent
   }
 ];
 
