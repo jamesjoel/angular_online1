@@ -1,0 +1,32 @@
+<html>
+    <style>
+        body{
+            background-color: #AB1245;
+        }
+    </style>
+    <body>
+        <h2>Home Page</h2>
+        <table border="1" align="center">
+            <tr>
+                <th>S.No.</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+            <% data.forEach(function(row, i){ %>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= row.name %></td>
+                    <td><%= row.city %></td>
+                    
+                </tr>
+
+
+           <% }) %>
+
+
+
+        </table>
+
+
+    </body>
+</html>

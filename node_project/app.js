@@ -23,4 +23,14 @@ app.listen(3000, ()=>{
     console.log("server running");
 })
 
-//create server with 3000 port
+/*
+1. show dbs   ------- List all db
+2. use <dbname> --- create or select a db
+3. db.<colname>.insert({}) ---- create or insert in collections
+4. show collections ------------ list all collection in DB
+5. db.<colname>.find() --------- show all data in the collection
+6. 
+
+
+
+*/
