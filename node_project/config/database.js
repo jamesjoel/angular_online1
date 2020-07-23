@@ -8,10 +8,19 @@ module.exports = function(cb){ // err, con
 
 
 /*
-var hello = require("database");
-hello(function(err, con){
+MognoClient.connect(url, function(err, con){
+    var db = con.db("mydb");
+    db.collection("student").find().toArray(function(err, result){
 
     })
+})
+var xyz = require("database");
+
+xyz(function(err, con){
+    var db = con.db("mydb");
+    db.collection("student").find().toArray(function(err, result){
+
+    });
 
 
 

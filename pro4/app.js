@@ -8,9 +8,6 @@ var url = "mongodb://localhost:27017";
 // web.googlefirebase.com/mongodb/user/james/mydb?username=<username>&password=<password>
 app.set("view engine", "ejs");
 
-
-
-
 app.get("/", (req, res)=>{
     MongoClient.connect(url, function(err, con){
        if(err){
