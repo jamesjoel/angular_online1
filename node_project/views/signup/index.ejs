@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center">Registration</h2>
+        <form action="/signup" method="post" id="form">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="Text" name="full_name" class="form-control" />
+            </div>    
+            <div class="form-group">
+                <label>Email</label>
+                <input type="Text" id="email" name="email" class="form-control" />
+                <p class="text-danger" id="error-msg"></p>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="Text" name="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Re-Password</label>
+                <input type="Text" name="re_password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <select class="form-control" name="city">
+                    <option value="">Select</option>
+                    <option value="indore">Indoer</option>
+                    <option value="bhopal">Bhopal</option>
+                    <option value="mumbai">Mumbai</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                Male <input type="radio" name="gender" value="male" />
+                Female <input type="radio" name="gender" value="female" />
+            </div>
+            <div class="form-group">
+                
+                <input type="submit" id="submit" class="btn btn-primary" value="Singup" />
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#form").submit(function(event){
+            event.preventDefault();
+            var e = $("#email").val();
+            
+            $.ajax({
+                url : "/signup/checkuser",
+                method : "POST",
+                data : { email : e },
+                dataType : "json",
+                success : function(res){
+                    // alert(res);
+                    if(res.check==false)
+                    {
+                        $("#error-msg").html("Already Taken");
+                        
+                    }
+                    else{
+                        alert("sdfgsdg");
+                        event.currentTarget.submit();
+                        
+                    }
+                }
+            })
+            //return false;
+        })
+    });
+</script>
