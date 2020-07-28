@@ -2,15 +2,31 @@ var express = require("express");
 var app = express();
 var routes = require("./config/routes");
 var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
+var flash = require("express-flash");
+var cache = require("nocache");
 
 app.set("view engine", "ejs");
 // this is application setting
 // app.set("views", "<folder name>");
 
-
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser());
+app.use(cookieParser()); // middle where fun
+app.use(session( { secret : "james joel" } ));
+app.use(flash());
+app.use(cache());
 // app.use() is a routing method which can run before any other routing method
+
+
+app.use(function(req, res, out){
+   
+    res.locals.logo = "The Stepping Stone";
+    res.locals.session = req.session;
+    out();
+});
+
 
 
 app.use(routes);
@@ -66,6 +82,17 @@ var db = con.db("dbname");
 
 
 
+
+
+req.session.id="100";
+req.session.name="rohit";
+
+
+var x = req.session.id;
+
+req.session.destroy();
+
+delete req.session.name;
 
 
 
