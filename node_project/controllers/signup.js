@@ -9,8 +9,20 @@ routes.get("/", (req, res) => { // localhost:3000/signup
 });
 
 routes.post("/", (req, res)=>{
+    /*
+    var obj={
+        name : req.body.full_name,
+        username : req.body.email,
+        
+    }
+
+
+    */
     var obj = req.body;
     delete obj.re_password;
+
+    //obj.username = obj.email;
+    // delete obj.email;
     obj.password = sha1(obj.password);
     User.insert(obj, function(err, result){
         // console.log(result);

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+
+            function send(){
+                socket.emit("hello", "my name is james");
+            }
+
+
+            socket.on("hello2", function(data){
+                document.getElementById("msg").innerHTML=data;
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Socket First App</h2>
+        <button onclick="send()">OK</button>
+        <p id="msg"></p>
+    </body>
+</html>
+
+<!-- 
+    socket.emit(); ----- send
+    socket.on(); ---- rec
+
+
+
+    socket.emit("key", "data ......");
+
+
+    socket.on("key", function(data){
+
+    });
+
+
+ -->

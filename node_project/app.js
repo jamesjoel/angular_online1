@@ -6,6 +6,7 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var flash = require("express-flash");
 var cache = require("nocache");
+var fileupload = require('express-fileupload');
 
 app.set("view engine", "ejs");
 // this is application setting
@@ -17,6 +18,7 @@ app.use(cookieParser()); // middle where fun
 app.use(session( { secret : "james joel" } ));
 app.use(flash());
 app.use(cache());
+app.use(fileupload());
 // app.use() is a routing method which can run before any other routing method
 
 
