@@ -19,18 +19,16 @@ app.get("/", (req, res)=>{
 // if <scriupt> var socket = io() </script>
 
 io.on("connection", (socket)=>{
-
-    socket.on("hello", function(data){
-        // socket.broadcast.emit("hello2", data);
-        io.emit("hello2", data);
-    });
-
+    console.log("connected");
+    socket.on("send", function(recObj){
+       io.emit("sendtoall", recObj);
+    });   
+});
 
 //    console.log("hello world *************", socket.id);
 //     socket.on("disconnect", function(){
 //     console.log("this client is DISCONNECTED", socket.id);
 //    });
-});
 
 
 
@@ -64,5 +62,8 @@ socket.broadcast.emit("key", "value");
     
 io.emit("key", "value")
     send to all connected client including sender
-    
+
+ io.on(socket.id).emit()
+    sending to ind client   
+
 */
