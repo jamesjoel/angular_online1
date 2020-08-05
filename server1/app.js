@@ -77,9 +77,6 @@ app.get("/api/verifytoken", function(req, res){
 
 
 
-app.get("/api/hello",(req, res)=>{
-    console.log(req.headers);
-})
 
 
 
@@ -88,77 +85,7 @@ app.get("/api/hello",(req, res)=>{
 
 
 
-app.get("/api/getuser", backdoor, function (req, res) {
-      
-        var id = req.userData.id;
-        con.query("SELECT * FROM user1 WHERE id = "+id, function(err, result){
-            if(err){
-                console.log(err);
-                return;
-            }
-            
-            result = JSON.parse(JSON.stringify(result));
-            
-            delete result[0].password;
-            res.status(200).send(result[0]);
-        })
-});
 
-app.get("/api/teacher", function (req, res) {
-
-    
-    con.query("SELECT * FROM employee", function (err, result) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-
-        result = JSON.parse(JSON.stringify(result));
-     
-        res.status(200).send(result);
-    })
-});
-
-app.get("/api/teacher/:id", function(req, res){
-    
-    var id = req.params.id;
-    con.query("SELECT * FROM employee WHERE id = "+id, function (err, result) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-
-        result = JSON.parse(JSON.stringify(result));
-
-        res.status(200).send(result[0]);
-    })
-});
-
-app.get("/api/products", function(req, res){
-    con.query("SELECT * FROM product", function (err, result) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-
-        result = JSON.parse(JSON.stringify(result));
-
-        res.status(200).send(result);
-    })
-})
-app.get("/api/products/:id", function (req, res) {
-    var id = req.params.id;
-    con.query("SELECT * FROM product WHERE id = "+id, function (err, result) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-
-        result = JSON.parse(JSON.stringify(result));
-
-        res.status(200).send(result[0]);
-    })
-})
 
 
 
