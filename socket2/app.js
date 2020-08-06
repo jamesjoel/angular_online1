@@ -10,7 +10,7 @@ var session = require("express-session");
 var arr = [];
 
 var obj={};
-var name="hello";
+
 var request;
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));
@@ -30,11 +30,7 @@ app.post("/", (req, res) => {
 });
 app.get("/chat", (req, res) => {
     request = req;
-    // arr.push(obj);
-    // console.log(arr);
     res.render("chat");
-    
-    // console.log(usersocket);
 });
 io.on("connection", (socket) => {
     console.log(request.session);

@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.on("score", function(data){
+            // console.log(data);
+            document.getElementById("live-score").innerHTML=data;
+            var tr = document.createElement("tr");
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            td1.innerHTML="";
+            td2.innerHTML=data;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            document.getElementById("tab").appendChild(tr);
+            
+        })
+    </script>
+</head>
+<body>
+    <Br />
+    <Br />
+    <h2 align="center">Live Score : <strong id="live-score">0</strong></h2>
+    <br />
+    <br />
+    <table align="center" border="1" id="tab">
+        <tr>
+            <th>S.No.</th>
+            <th>Old Score</th>
+        </tr>
+        <% data.forEach(function(x, n){ %>
+            <tr>
+                <td><%= n+1 %></td>
+                <td><%= x.score %></td>
+            </tr>
+        <% }) %>
+    </table>
+    
+</body>
+
+</html>
