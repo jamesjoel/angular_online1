@@ -1,0 +1,56 @@
+<div class="hero-slider hero-slider-bg-1" id="slider">
+    <div class="single-slide slider-mockup">
+        <!-- Hero Content One Start -->
+        <div class="hero-content-one container">
+            </div>
+    </div>
+</div>
+<div id="about" class="about-area-one bg-about section-ptb">
+    <div class="animate-section">
+        <div class="icon-one" style="background-image:url(assets/images/icon/shep_01.png)"></div>
+        <div class="icon-two" style="background-image:url(assets/images/icon/shep_02.png)"></div>
+        <div class="icon-three" style="background-image:url(assets/images/icon/shep_03.png)"></div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center">Teachers</h1>
+                <!-- <pre>{{ teacher | json }}</pre> -->
+                <table class="table table-dark table-bordered">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr *ngFor="let t of teachers; let n = index">
+                        <td>{{ n+1 }}</td>
+                        <td>{{ t.name }}</td>
+                        <td>{{ t.age }}</td>
+                        <td>{{ t.city }}</td>
+                        <td><button class="btn btn-danger" data-target="#delModal" data-toggle="modal" (click)='askDelete(t)'>Delete</button></td>
+                    </tr>
+                </table>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Teacher</h2>
+            </div>
+            <div class="modal-body">
+                <p>Are You sure want to delete <strong *ngIf="teacher">{{ teacher.name }}</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-dark" data-dismiss="modal" (click)="delete()">Delete</button>
+                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

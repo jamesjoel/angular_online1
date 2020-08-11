@@ -3,6 +3,10 @@ var app = express();
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var jwt = require("jsonwebtoken");
+/*
+    npm install jsonwebtoken
+
+*/
 
 var mysql = require('mysql');
 var fileupload = require("express-fileupload");
@@ -131,12 +135,14 @@ app.post("/api/login", function (req, res) {
       }
       if(result.length>=1) {
           
-          result = JSON.parse(JSON.stringify(result))
+          result = JSON.parse(JSON.stringify(result));
           
            if(result[0].password == p)
            {
             //    console.log("%%%%%%%%%%%55", result);
             var token = jwt.sign({ id: result[0].id }, "this is my secret key", { expiresIn: 3600 });
+
+            
                   res.status(200).send({
                             success: true,
                             token
