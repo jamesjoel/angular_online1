@@ -1,0 +1,46 @@
+<div class="hero-slider hero-slider-bg-1" id="slider">
+    <div class="single-slide slider-mockup">
+        <!-- Hero Content One Start -->
+        
+    </div>
+</div>
+<div id="about" class="about-area-one bg-about section-ptb">
+    <div class="animate-section">
+        <div class="icon-one" style="background-image:url(assets/images/icon/shep_01.png)"></div>
+        <div class="icon-two" style="background-image:url(assets/images/icon/shep_02.png)"></div>
+        <div class="icon-three" style="background-image:url(assets/images/icon/shep_03.png)"></div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center">Edit Teachers</h1>
+                <!-- <pre>{{ teacher | json }}</pre> -->
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="teacher.name" />
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="text" class="form-control" [(ngModel)]="teacher.age" />
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <select class="form-control" [(ngModel)]="teacher.city">
+                        <option value="">Select</option>
+                        <option value="indore">indore</option>
+                        <option value="ujjain">ujjain</option>
+                        <option value="bhopal">bhopal</option>
+                        <option value="delhi">delhi</option>
+
+
+                    </select>
+                </div>
+                
+                <!-- <a class="btn btn-primary" (click)="update()">Update</a> -->
+            </div>
+            <button type="button" class="btn btn-success" (click)="update()">Update</button>
+            
+        </div>
+    </div>
+</div>

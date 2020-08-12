@@ -12,6 +12,9 @@ export class TeacherService {
   getAll(){
     return this._http.get<any>(this.url);
   }
+  getTeacher(id){
+    return this._http.get<any>(this.url+"/"+id);
+  }
   insert(obj){
     return this._http.post<any>(this.url, obj);
 
