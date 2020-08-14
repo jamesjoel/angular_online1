@@ -82,14 +82,16 @@ app.get("/api/verifytoken", function(req, res){
 
 
 
+app.get("/api/user/profile", backdoor, (req, res)=>{
+    var id = req.userData.id;
+});
 
 
 
 
 
 
-
-
+// localhost:3000/api/user/profile
 
 
 
@@ -107,6 +109,7 @@ function backdoor(req, res, next) {
         }
         else {
             var token = req.headers.authorization;
+
             var userInfo = jwt.verify(token, "this is my secret key");
             if (!userInfo) {
                 res.status(401).send({ msg: "Unathorized User" });
@@ -140,6 +143,7 @@ app.post("/api/login", function (req, res) {
            if(result[0].password == p)
            {
             //    console.log("%%%%%%%%%%%55", result);
+            // jwt.sign( obj, secret key, time- in second)
             var token = jwt.sign({ id: result[0].id }, "this is my secret key", { expiresIn: 3600 });
 
             
