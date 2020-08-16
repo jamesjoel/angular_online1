@@ -120,6 +120,132 @@ SELECT * FROM table age = 25 LIMIT 10, 5 ORDER BY age DESC
 .find({}).sort({age : true}).limit(5)
 
 
+db.collection("studet").find({}).count(cb);
+
+
+
+======================== Update ======================
+
+db.collection("student").update({city : "indore"}, {$set : {age : 25}}, cb)
+db.collection("student").update({city : "indore"}, {age : 25}, cb)
+
+db.collection("").update({}, {$rename : {"name" : "fullname"}});
+db.collection("").update({}, {$unset : {"name" : ""}});
+db.collection("").update({age : 25}, {$push : {"hobby" : "music"}});
+db.collection("").update({age : 25}, {$pull : {"hobby" : "music"}});
+
+db.collection("").update({}, { $sort : { age : true}});
+
+db.collection("").update({}, { $set : { fee : {$inc : 1000}}});
+
+
+db.collection("").update({}, { $set : { fee : {$min : 1000}}});
+
+db.collection("").update({}, { $set : { fee : {$max : 1000}}});
+
+
+
+=========================== Collection Method
+1. find()
+2. update(), updateOne(), updateMany()*
+
+3. remove(), removeMany()
+4. insert()
+5. insertMany([])
+6. db.collection("student").drop();
+7. db.drop()
+8. db.collection("student").renameCollection("allstudent", cb);
+9. db.collection("").aggregate();
+
+
+db.collection("user").aggregate(
+    [
+        $lookup : {
+            from : "order",
+            localField : "_id",
+            foreignField : "userid",
+            as : "order"
+        }
+    ]
+);
+
+SELECT * FROM user INNER JOIN order ON user._id = order.userid
+
+
+[
+    {
+        _id : 1,
+        name : "rohit",
+        order : [
+            {
+                _id : 3,
+                userid : 1,
+                product : "mobile"
+            }
+        ]
+    },
+    {
+        _id : 2,
+        name : "james",
+        order : [
+            {
+                _id : 1,
+                userid : 2,
+                product : "mobile"
+            },
+            {
+                _id : 2,
+                userid : 2,
+                product : "tv"
+            }
+        ]
+    }
+]
+
+
+
+
+--------------- user ----------
+[
+    {
+        _id : 1,
+        name : "rohit",
+        age : 25
+        
+    },
+    {
+        _id : 2,
+        name : "james",
+        age : 25
+    }
+]
+--------------- order -----------
+[
+    {
+        _id : 1,
+        userid : 2,
+        product : "mobile"
+    },
+    {
+        _id : 2,
+        userid : 2,
+        product : "tv"
+    },
+    {
+        _id : 3,
+        userid : 1,
+        product : "mobile"
+    }
+
+]
+
+
+
+
+
+
+
+
 
 
 
@@ -128,16 +254,16 @@ SELECT * FROM table age = 25 LIMIT 10, 5 ORDER BY age DESC
 
     [
         {
+            name : "jay",
+            age : "28",
+            city : "indore",
+            hobby : ["cricket", "football"]
+        },
+        {
             name : "rohit",
             age : "25",
             type : string
             city : "ujjain"
-        },
-        {
-            name : "jay",
-            age : "",
-            city : "",
-            hobby : ["cricket", "football"]
         },
         {
             name : "james",
